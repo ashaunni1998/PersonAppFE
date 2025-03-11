@@ -15,7 +15,11 @@ const AddPerson = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+<<<<<<< HEAD
       await axios.post("http://localhost:8089/api/persons", person); // Corrected API URL
+=======
+      await axios.post("http://localhost:8081/api/persons", person); // Corrected API URL
+>>>>>>> face7bb (first commit)
       setToastMessage("Person added successfully!");
       setToastVariant("success");
       setShowToast(true);

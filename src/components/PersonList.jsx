@@ -15,7 +15,11 @@ const PersonList = () => {
 
   const fetchPersons = async () => {
     try {
+<<<<<<< HEAD
       const response = await axios.get("http://localhost:8089/api/persons");
+=======
+      const response = await axios.get("http://localhost:8081/api/persons");
+>>>>>>> face7bb (first commit)
       setPersons(response.data);
       setLoading(false);
     } catch (error) {
@@ -29,7 +33,11 @@ const PersonList = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this person?")) {
       try {
+<<<<<<< HEAD
         await axios.delete(`http://localhost:8089/api/persons/${id}`);
+=======
+        await axios.delete(`http://localhost:8081/api/persons/${id}`);
+>>>>>>> face7bb (first commit)
         setPersons(persons.filter((person) => person.id !== id)); 
         alert("Person deleted successfully!");
       } catch (error) {
@@ -53,7 +61,11 @@ const PersonList = () => {
   
   const handleUpdate = async () => {
     try {
+<<<<<<< HEAD
       await axios.put(`http://localhost:8089/api/persons/${selectedPerson.id}`, selectedPerson);
+=======
+      await axios.put(`http://localhost:8081/api/persons/${selectedPerson.id}`, selectedPerson);
+>>>>>>> face7bb (first commit)
       setShowEditModal(false);
       fetchPersons(); 
       alert("Person updated successfully!");
