@@ -15,63 +15,47 @@ const PersonList = () => {
 
   const fetchPersons = async () => {
     try {
-<<<<<<< HEAD
-      const response = await axios.get("http://localhost:8089/api/persons");
-=======
-      const response = await axios.get("http://localhost:8081/api/persons");
->>>>>>> face7bb (first commit)
+      const response = await axios.get("http://localhost:8089/api/persons"); 
       setPersons(response.data);
-      setLoading(false);
     } catch (error) {
       console.error("Error fetching persons:", error);
       setError("Failed to load persons");
+    } finally {
       setLoading(false);
     }
   };
 
-  
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this person?")) {
       try {
-<<<<<<< HEAD
         await axios.delete(`http://localhost:8089/api/persons/${id}`);
-=======
-        await axios.delete(`http://localhost:8081/api/persons/${id}`);
->>>>>>> face7bb (first commit)
         setPersons(persons.filter((person) => person.id !== id)); 
-        alert("Person deleted successfully!");
+        alert("✅ Person deleted successfully!");
       } catch (error) {
         console.error("Error deleting person:", error);
-        alert("Failed to delete person.");
+        alert("❌ Failed to delete person.");
       }
     }
   };
 
-  
   const handleEdit = (person) => {
     setSelectedPerson(person);
     setShowEditModal(true);
   };
 
-
   const handleChange = (e) => {
     setSelectedPerson({ ...selectedPerson, [e.target.name]: e.target.value });
   };
 
-  
   const handleUpdate = async () => {
     try {
-<<<<<<< HEAD
       await axios.put(`http://localhost:8089/api/persons/${selectedPerson.id}`, selectedPerson);
-=======
-      await axios.put(`http://localhost:8081/api/persons/${selectedPerson.id}`, selectedPerson);
->>>>>>> face7bb (first commit)
       setShowEditModal(false);
       fetchPersons(); 
-      alert("Person updated successfully!");
+      alert("✅ Person updated successfully!");
     } catch (error) {
       console.error("Error updating person:", error);
-      alert("Failed to update person.");
+      alert("❌ Failed to update person.");
     }
   };
 
@@ -113,19 +97,10 @@ const PersonList = () => {
                   <td className="fw-semibold">{person.name}</td>
                   <td>{person.dob}</td>
                   <td>
-                    <Button
-                      variant="warning"
-                      className="me-2"
-                      size="sm"
-                      onClick={() => handleEdit(person)}
-                    >
+                    <Button variant="warning" className="me-2" size="sm" onClick={() => handleEdit(person)}>
                       ✏ Edit
                     </Button>
-                    <Button
-                      variant="danger"
-                      size="sm"
-                      onClick={() => handleDelete(person.id)}
-                    >
+                    <Button variant="danger" size="sm" onClick={() => handleDelete(person.id)}>
                       🗑 Delete
                     </Button>
                   </td>

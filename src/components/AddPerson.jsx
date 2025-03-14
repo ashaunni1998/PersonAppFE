@@ -15,11 +15,7 @@ const AddPerson = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-<<<<<<< HEAD
-      await axios.post("http://localhost:8089/api/persons", person); // Corrected API URL
-=======
-      await axios.post("http://localhost:8081/api/persons", person); // Corrected API URL
->>>>>>> face7bb (first commit)
+      await axios.post("http://localhost:8089/api/persons", person); // Use the correct backend port
       setToastMessage("Person added successfully!");
       setToastVariant("success");
       setShowToast(true);
@@ -31,16 +27,15 @@ const AddPerson = () => {
       console.error("Error adding person:", error);
     }
   };
-   return (
+
+  return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
-      
       <ToastContainer position="top-end" className="p-3">
         <Toast bg={toastVariant} onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
           <Toast.Body className="text-white">{toastMessage}</Toast.Body>
         </Toast>
       </ToastContainer>
 
-    
       <Card className="shadow-lg p-4 rounded-4" style={{ width: "420px" }}>
         <Card.Body>
           <h2 className="text-center text-primary fw-bold"> Add Person</h2>
@@ -71,7 +66,7 @@ const AddPerson = () => {
             </Form.Group>
 
             <Button type="submit" className="w-100 fw-bold rounded-3" variant="primary">
-               Add Person
+              Add Person
             </Button>
           </Form>
         </Card.Body>
